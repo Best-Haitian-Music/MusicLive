@@ -86,8 +86,8 @@ with this app User can
 * Profile
 	* It displays information about the user
  
-Wireframes
-[Add picture of your hand sketched wireframes in this section]
+## Wireframes
+<img src="https://github.com/Best-Haitian-Music/MusicLive/blob/master/wireframes.jpeg" width=800><br>
 
 [BONUS] Digital Wireframes & Mockups
 This is the figma's link "https://www.figma.com/proto/sED6oJWXK3kuV1nof74XRq/Untitled?node-id=10%3A4&scaling=min-zoom"
