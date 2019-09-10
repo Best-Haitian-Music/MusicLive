@@ -19,7 +19,7 @@ so we create this app to help them share their music, so people listen to them, 
 ### App Evaluation
 - **Category:** Music
 - **Mobile:** This app would be primarily developed for mobile but would perhaps be just as viable on a computer, such as tinder or other similar apps. Functionality wouldn’t be limited to mobile devices, however mobile version could potentially have more features.
--**Story:** Music Live Allows users  to subscribe to an artist and find his music in the home, it also allows users to listen to musics, to create his own playlists, to like a music, to comment under a music.
+- **Story:** Music Live Allows users  to subscribe to an artist and find his music in the home, it also allows users to listen to musics, to create his own playlists, to like a music, to comment under a music.
 - **Market:** Any individual could choose to use this app, and to keep it a safe environment.
 - **Habit:** This app could be used as often or unoften as the user wanted depending on how deep their social life is, and what exactly they're looking for, and also depending on how passionate they are about good musics.
 - **Scope:** First we would start with listing all the artists and the user will choose which music he would like to listen to. He can even create his own playlist.
