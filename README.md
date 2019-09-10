@@ -89,7 +89,9 @@ with this app User can
 ## Wireframes
 <img src="https://github.com/Best-Haitian-Music/MusicLive/blob/master/wireframes.jpeg" width=800><br>
 
-[BONUS] Digital Wireframes & Mockups
+### [BONUS] Digital Wireframes & Mockups
+<img src="https://github.com/Best-Haitian-Music/MusicLive/blob/master/signUp.png" height=200>
+<img src="https://github.com/Best-Haitian-Music/MusicLive/blob/master/login.png" height=200>
 This is the figma's link "https://www.figma.com/proto/sED6oJWXK3kuV1nof74XRq/Untitled?node-id=10%3A4&scaling=min-zoom"
 [BONUS] Interactive Prototype
 Schema
