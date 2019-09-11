@@ -90,8 +90,8 @@ with this app User can
 <img src="https://github.com/Best-Haitian-Music/MusicLive/blob/master/wireframes.jpeg" width=800><br> 
 
 ### [BONUS] Digital Wireframes & Mockups
-<img src="https://github.com/Best-Haitian-Music/MusicLive/blob/master/signUp.png" height=200>
-<img src="https://github.com/Best-Haitian-Music/MusicLive/blob/master/login.png" height=200>
+<span><img src="https://github.com/Best-Haitian-Music/MusicLive/blob/master/signUp.png" height=200>
+<img src="https://github.com/Best-Haitian-Music/MusicLive/blob/master/login.png" height=200></span>
 This is the figma's link "https://www.figma.com/proto/sED6oJWXK3kuV1nof74XRq/Untitled?node-id=10%3A4&scaling=min-zoom"
 
 
@@ -104,9 +104,12 @@ Models
    | Property      | Type     | Description |
    | ------------- | -------- | ------------|
    | objectId      | String   | unique id for the user (default field) |
-   | username      | String   | username for an user |
-   | email         | String   | email for an user
+   | name          | String   | name of the user  |
+   | phone         | number   | The phone number of the user|
+   | email         | String   | email for an user |
+   | adress        | String   | Address of the user  |
    | image         | File     | profile image for an user  |
+   | username      | String   | username for an user |
    | createdAt     | DateTime | date when user is created (default field) |
    | updatedAt     | DateTime | date when user is last updated (default field) | 
    
@@ -116,9 +119,10 @@ Models
    | Property      | Type     | Description |
    | ------------- | -------- | ------------|
    | objectId      | String   | unique id for the song(default field) |
-   | mp3           | File     | image that user posts |
+   | mp3           | File     | song of the artist |
    | cover         | File     | image cover for the song |
-   | artist        | String   | name of the artist who sent the song |
+   | albumTitle    | String   | album title of the music  |
+   | artist        | Pointer to Artist| song of artist |
    | title         | String   | song title |
    | genre         | String   | genre of the song |
    | commentsCount | Number   | number of comments that has been posted to an image |
