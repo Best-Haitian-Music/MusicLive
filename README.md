@@ -97,18 +97,7 @@ This is the figma's link "https://www.figma.com/proto/sED6oJWXK3kuV1nof74XRq/Unt
 Schema
 [This section will be completed in Unit 9]
 
-## Schema 
-### Models
-#### User
-| Property      | Type     | Description |
-   | ------------- | -------- | ------------|
-   | objectId      | String   | unique id for the user post (default field) |
-   | name          | String   | name of the user  |
-   | adress        | String   | Address of the user  |
-   | phone         | number   | The phone number of the user|
-   | email         | String   | Email account of the user  |
-   | createdAt     | DateTime | date when post is created (default field) |
-   | updatedAt     | DateTime | date when post is last updated (default field) |
+
    
 Networking
 [Add list of network requests by screen ]
