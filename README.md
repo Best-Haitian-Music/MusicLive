@@ -87,28 +87,57 @@ with this app User can
 	* It displays information about the user
  
 ## Wireframes
-<img src="https://github.com/Best-Haitian-Music/MusicLive/blob/master/wireframes.jpeg" width=800><br>
+<img src="https://github.com/Best-Haitian-Music/MusicLive/blob/master/wireframes.jpeg" width=800><br> 
 
 ### [BONUS] Digital Wireframes & Mockups
-<span><img src="https://github.com/Best-Haitian-Music/MusicLive/blob/master/signUp.png" height=200>
-<img src="https://github.com/Best-Haitian-Music/MusicLive/blob/master/login.png" height=200></span><br>
+<img src="https://github.com/Best-Haitian-Music/MusicLive/blob/master/signUp.png" height=200>
+<img src="https://github.com/Best-Haitian-Music/MusicLive/blob/master/login.png" height=200>
 This is the figma's link "https://www.figma.com/proto/sED6oJWXK3kuV1nof74XRq/Untitled?node-id=10%3A4&scaling=min-zoom"
-[BONUS] Interactive Prototype
-Schema
-[This section will be completed in Unit 9]
+[BONUS] Interactive Prototype 
 
-## Schema 
-### Models
-#### User
-| Property      | Type     | Description |
+
+Schema 
+
+Models
+
+## User
+
+   | Property      | Type     | Description |
    | ------------- | -------- | ------------|
-   | objectId      | String   | unique id for the user post (default field) |
-   | name          | String   | name of the user  |
-   | adress        | String   | Address of the user  |
-   | phone         | number   | The phone number of the user|
-   | email         | String   | Email account of the user  |
+   | objectId      | String   | unique id for the user (default field) |
+   | username      | String   | username for an user |
+   | email         | String   | email for an user
+   | image         | File     | profile image for an user  |
+   | createdAt     | DateTime | date when user is created (default field) |
+   | updatedAt     | DateTime | date when user is last updated (default field) | 
+   
+
+## Song 
+
+   | Property      | Type     | Description |
+   | ------------- | -------- | ------------|
+   | objectId      | String   | unique id for the song(default field) |
+   | mp3           | File     | image that user posts |
+   | cover         | File     | image cover for the song |
+   | artist        | String   | name of the artist who sent the song |
+   | title         | String   | song title |
+   | genre         | String   | genre of the song |
+   | commentsCount | Number   | number of comments that has been posted to an image |
+   | likesCount    | Number   | number of likes for the post |
    | createdAt     | DateTime | date when post is created (default field) |
    | updatedAt     | DateTime | date when post is last updated (default field) |
+   
+   ## Artist 
+   
+   | Property      | Type     | Description |
+   | ------------- | -------- | ------------|
+   | objectId      | String   | unique id for the user post (default field) |
+   | image         | File     | Profile image for the artist|
+   | name          | String   | name of the artist  |
+   | SongsCount    | Number   | number of song that has been posted on the app |
+   | createdAt     | DateTime | date when post is created (default field) |
+   | updatedAt     | DateTime | date when post is last updated (default field) |
+   
    
 Networking
 [Add list of network requests by screen ]
