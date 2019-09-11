@@ -91,7 +91,8 @@ with this app User can
 
 ### [BONUS] Digital Wireframes & Mockups
 <span><img src="https://github.com/Best-Haitian-Music/MusicLive/blob/master/signUp.png" height=200>
-<img src="https://github.com/Best-Haitian-Music/MusicLive/blob/master/login.png" height=200></span><br>
+<img src="https://github.com/Best-Haitian-Music/MusicLive/blob/master/login.png" height=200>
+<img src="https://github.com/Best-Haitian-Music/MusicLive/blob/master/play%20song.png" height=200></span><br>
 This is the figma's link "https://www.figma.com/proto/sED6oJWXK3kuV1nof74XRq/Untitled?node-id=10%3A4&scaling=min-zoom"
 
 
