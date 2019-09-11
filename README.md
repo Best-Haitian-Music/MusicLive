@@ -140,6 +140,32 @@ Models
    
    
 Networking
-[Add list of network requests by screen ]
+
+## Log in
+(Read/GET) Query logged in user object
+
+## Sign up
+(Create/POST) create a new user 
+
+## Home 
+(Read/GET) query all artists
+(Create/POST) Create a new like on a song
+(Delete) Delete existing like
+(Create/POST) Create a new comment on a song
+(Delete) Delete existing comment
+
+## Results 
+(Read/Get) query all the songs related to the search of the user 
+
+## Artist songs 
+(Read/GET) query all the songs of the artist 
+
+## Profile 
+(Read/GET) Query logged in user object
+(Update/PUT) Update user profile image 
+
+## PlayList 
+(Read/GET) Query all the songs that the user liked. 
+
 [Create basic snippets for each Parse network request]
 [OPTIONAL: List endpoints if using existing API such as Yelp]
