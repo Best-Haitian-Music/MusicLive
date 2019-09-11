@@ -90,15 +90,26 @@ with this app User can
 <img src="https://github.com/Best-Haitian-Music/MusicLive/blob/master/wireframes.jpeg" width=800><br>
 
 ### [BONUS] Digital Wireframes & Mockups
-<img src="https://github.com/Best-Haitian-Music/MusicLive/blob/master/signUp.png" height=200>
-<img src="https://github.com/Best-Haitian-Music/MusicLive/blob/master/login.png" height=200>
+<span><img src="https://github.com/Best-Haitian-Music/MusicLive/blob/master/signUp.png" height=200>
+<img src="https://github.com/Best-Haitian-Music/MusicLive/blob/master/login.png" height=200></span>
 This is the figma's link "https://www.figma.com/proto/sED6oJWXK3kuV1nof74XRq/Untitled?node-id=10%3A4&scaling=min-zoom"
 [BONUS] Interactive Prototype
 Schema
 [This section will be completed in Unit 9]
 
-Models
-[Add table of models]
+## Schema 
+### Models
+#### User
+| Property      | Type     | Description |
+   | ------------- | -------- | ------------|
+   | objectId      | String   | unique id for the user post (default field) |
+   | name          | String   | name of the user  |
+   | adress        | String   | Address of the user  |
+   | phone         | number   | The phone number of the user|
+   | email         | String   | Email account of the user  |
+   | createdAt     | DateTime | date when post is created (default field) |
+   | updatedAt     | DateTime | date when post is last updated (default field) |
+   
 Networking
 [Add list of network requests by screen ]
 [Create basic snippets for each Parse network request]
