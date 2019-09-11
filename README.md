@@ -148,9 +148,13 @@ Networking
 
 ## Home 
 (Read/GET) query all artists
+
 (Create/POST) Create a new like on a song
+
 (Delete) Delete existing like
+
 (Create/POST) Create a new comment on a song
+
 (Delete) Delete existing comment
 
 ## Results 
