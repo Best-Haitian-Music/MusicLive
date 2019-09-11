@@ -87,19 +87,84 @@ with this app User can
 	* It displays information about the user
  
 ## Wireframes
-<img src="https://github.com/Best-Haitian-Music/MusicLive/blob/master/wireframes.jpeg" width=800><br>
+<img src="https://github.com/Best-Haitian-Music/MusicLive/blob/master/wireframes.jpeg" width=800><br> 
 
 ### [BONUS] Digital Wireframes & Mockups
-<span><img src="https://github.com/Best-Haitian-Music/MusicLive/blob/master/signUp.png" height=200>
-<img src="https://github.com/Best-Haitian-Music/MusicLive/blob/master/login.png" height=200></span><br>
+<img src="https://github.com/Best-Haitian-Music/MusicLive/blob/master/signUp.png" height=200>
+<img src="https://github.com/Best-Haitian-Music/MusicLive/blob/master/login.png" height=200>
 This is the figma's link "https://www.figma.com/proto/sED6oJWXK3kuV1nof74XRq/Untitled?node-id=10%3A4&scaling=min-zoom"
-[BONUS] Interactive Prototype
-Schema
-[This section will be completed in Unit 9]
 
 
+Schema 
+
+Models
+
+## User
+
+   | Property      | Type     | Description |
+   | ------------- | -------- | ------------|
+   | objectId      | String   | unique id for the user (default field) |
+   | username      | String   | username for an user |
+   | email         | String   | email for an user
+   | image         | File     | profile image for an user  |
+   | createdAt     | DateTime | date when user is created (default field) |
+   | updatedAt     | DateTime | date when user is last updated (default field) | 
+   
+
+## Song 
+
+   | Property      | Type     | Description |
+   | ------------- | -------- | ------------|
+   | objectId      | String   | unique id for the song(default field) |
+   | mp3           | File     | image that user posts |
+   | cover         | File     | image cover for the song |
+   | artist        | String   | name of the artist who sent the song |
+   | title         | String   | song title |
+   | genre         | String   | genre of the song |
+   | commentsCount | Number   | number of comments that has been posted to an image |
+   | likesCount    | Number   | number of likes for the post |
+   | createdAt     | DateTime | date when post is created (default field) |
+   | updatedAt     | DateTime | date when post is last updated (default field) |
+   
+   ## Artist 
+   
+   | Property      | Type     | Description |
+   | ------------- | -------- | ------------|
+   | objectId      | String   | unique id for the user post (default field) |
+   | image         | File     | Profile image for the artist|
+   | name          | String   | name of the artist  |
+   | SongsCount    | Number   | number of song that has been posted on the app |
+   | createdAt     | DateTime | date when post is created (default field) |
+   | updatedAt     | DateTime | date when post is last updated (default field) |
+   
    
 Networking
-[Add list of network requests by screen ]
+
+## Log in
+(Read/GET) Query logged in user object
+
+## Sign up
+(Create/POST) create a new user 
+
+## Home 
+(Read/GET) query all artists
+(Create/POST) Create a new like on a song
+(Delete) Delete existing like
+(Create/POST) Create a new comment on a song
+(Delete) Delete existing comment
+
+## Results 
+(Read/Get) query all the songs related to the search of the user 
+
+## Artist songs 
+(Read/GET) query all the songs of the artist 
+
+## Profile 
+(Read/GET) Query logged in user object
+(Update/PUT) Update user profile image 
+
+## PlayList 
+(Read/GET) Query all the songs that the user liked. 
+
 [Create basic snippets for each Parse network request]
 [OPTIONAL: List endpoints if using existing API such as Yelp]
