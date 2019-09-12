@@ -12,14 +12,14 @@ Music Live is a Haitian music app on which underground artist from all over the 
  can contact us to upload their songs on the app via this Email: "musiclive362@gmail.com"
 
 This app is made for underground artists who are recording good music (lyrics, sound), but unfortunately 
-their music doesn't play in any radio station, in any party but only their family, friends and some people because they are unpopular artist.
+their music doesn't play in any radio station, in any party but only their family, friends and some other people because they are unpopular artist.
 so we create this app to help them share their music, so people listen to them, discover thier talents, their masterpiece.
 
 
 ### App Evaluation
 - **Category:** Music
 - **Mobile:** This app would be primarily developed for mobile but would perhaps be just as viable on a computer, such as tinder or other similar apps. Functionality wouldn’t be limited to mobile devices, however mobile version could potentially have more features.
-- **Story:** Music Live Allows users  to subscribe to an artist and find his music in the home, it also allows users to listen to musics, to create his own playlists, to like a music, to comment under a music.
+- **Story:** Music Live Allows users  to see all the artists we have in the app and find their musics, it also allows users to listen to musics, to create his own playlists, to like a music, to comment under a music.
 - **Market:** Any individual could choose to use this app, and to keep it a safe environment.
 - **Habit:** This app could be used as often or unoften as the user wanted depending on how deep their social life is, and what exactly they're looking for, and also depending on how passionate they are about good musics.
 - **Scope:** First we would start with listing all the artists and the user will choose which music he would like to listen to. He can even create his own playlist.
@@ -31,7 +31,7 @@ with this app User can
 - [ ] log in 
 - [ ] Create new account 
 - [ ] Log out
-- [ ] view all uploaded songs
+- [ ] view all artists and all songs belong to each artist
 - [ ] view his profile
 - [ ] create  playlist.
 - [ ] Search and Discover music from the App.
@@ -141,6 +141,8 @@ Models
    | objectId      | String   | unique id for the user post (default field) |
    | image         | File     | Profile image for the artist|
    | name          | String   | name of the artist  |
+   | phone         | number   | The phone number of the artist|
+   | email         | String   | email for an artist |
    | SongsCount    | Number   | number of song that has been posted on the app |
    | createdAt     | DateTime | date when post is created (default field) |
    | updatedAt     | DateTime | date when post is last updated (default field) |
