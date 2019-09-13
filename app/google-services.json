@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "848825442347",
+    "firebase_url": "https://besthaitianmusic.firebaseio.com",
+    "project_id": "besthaitianmusic",
+    "storage_bucket": "besthaitianmusic.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:848825442347:android:087653071bd68f5fad8a6e",
+        "android_client_info": {
+          "package_name": "com.albert.musiclive"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "848825442347-r2vmr7q4jhbdcq87n9htgckunog7spr6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB8jeBZ80EmzChMppXGykIP_T8Ch9XTFpo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "848825442347-r2vmr7q4jhbdcq87n9htgckunog7spr6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
