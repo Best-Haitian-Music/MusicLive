@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         btnLogin=findViewById(R.id.btnLogin);
         tvCreate=findViewById(R.id.tvCreate);
 
+        //Init Firebase
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         final DatabaseReference table_user = database.getReference("user");
 
@@ -52,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
                             mDialog.dismiss();
 
+                            //Get information
                             User user1 = dataSnapshot.child(user).getValue(User.class);
 
                             if (user1.getPassword().equals(pass)) {
@@ -71,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
 
                     }
                 });
-                Toast.makeText(MainActivity.this, "Nap Travay sou Fonktyonalite sa", Toast.LENGTH_SHORT).show();
+               // Toast.makeText(MainActivity.this, "Nap Travay sou Fonktyonalite sa", Toast.LENGTH_SHORT).show();
             }
         });
 
