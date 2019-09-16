@@ -16,7 +16,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class MainActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
     private static final String TAG = "LoginActivity";
     private EditText etUserName;
     private EditText etPassWord;
@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
         etUserName=findViewById(R.id.etUserName);
         etPassWord=findViewById(R.id.etPassWord);
         btnLogin=findViewById(R.id.btnLogin);
@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
                 final String user = etUserName.getText().toString();
                 final String pass = etPassWord.getText().toString();
 
-                final ProgressDialog mDialog = new ProgressDialog(MainActivity.this);
+                final ProgressDialog mDialog = new ProgressDialog(LoginActivity.this);
                 mDialog.setMessage("Please waiting....");
                 mDialog.show();
 
@@ -57,13 +57,13 @@ public class MainActivity extends AppCompatActivity {
                             User user1 = dataSnapshot.child(user).getValue(User.class);
 
                             if (user1.getPassword().equals(pass)) {
-                                Toast.makeText(MainActivity.this, "Sign in successfully !", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LoginActivity.this, "Sign in successfully !", Toast.LENGTH_SHORT).show();
                             } else {
-                                Toast.makeText(MainActivity.this, "Wrong password !", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LoginActivity.this, "Wrong password !", Toast.LENGTH_SHORT).show();
                             }
                         }else{
                             mDialog.dismiss();
-                            Toast.makeText(MainActivity.this, "User not exist in database ", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this, "User not exist in database ", Toast.LENGTH_SHORT).show();
 
                         }
                     }
@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
 
                     }
                 });
-               // Toast.makeText(MainActivity.this, "Nap Travay sou Fonktyonalite sa", Toast.LENGTH_SHORT).show();
+                // Toast.makeText(HomeActivity.this, "Nap Travay sou Fonktyonalite sa", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-               // Toast.makeText(MainActivity.this, "Nap Travay sou Fonctyonalite sa", Toast.LENGTH_SHORT).show();
+                // Toast.makeText(HomeActivity.this, "Nap Travay sou Fonctyonalite sa", Toast.LENGTH_SHORT).show();
                 Intent i = new Intent(getBaseContext(),RegistrationActivity.class);
                 startActivity(i);
                 finish();
