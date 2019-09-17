@@ -73,7 +73,7 @@ public class LoginActivity extends AppCompatActivity {
 
                     }
                 });
-                // Toast.makeText(HomeActivity.this, "Nap Travay sou Fonktyonalite sa", Toast.LENGTH_SHORT).show();
+                // Toast.makeText(WelcomeActivity.this, "Nap Travay sou Fonktyonalite sa", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -81,7 +81,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                // Toast.makeText(HomeActivity.this, "Nap Travay sou Fonctyonalite sa", Toast.LENGTH_SHORT).show();
+                // Toast.makeText(WelcomeActivity.this, "Nap Travay sou Fonctyonalite sa", Toast.LENGTH_SHORT).show();
                 Intent i = new Intent(getBaseContext(),RegistrationActivity.class);
                 startActivity(i);
                 finish();
