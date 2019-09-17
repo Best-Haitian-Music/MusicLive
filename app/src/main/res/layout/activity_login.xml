@@ -66,7 +66,7 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:layout_marginBottom="15dp"
+            android:layout_marginBottom="95dp"
             android:ems="10"
 
             android:hint="password"
@@ -84,6 +84,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
+
         android:background="@android:color/background_light"
         android:text="Sign In"
         android:textSize="18sp" />
@@ -93,7 +94,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:layout_marginTop="130dp"
+        android:layout_marginTop="100dp"
         android:gravity="center"
         android:text="Don't have an account yet? Sing Up"
         android:textColor="#020202"

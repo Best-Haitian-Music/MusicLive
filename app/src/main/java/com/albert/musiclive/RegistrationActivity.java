@@ -45,6 +45,10 @@ public class RegistrationActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                Intent i = new Intent(getBaseContext(),MainActivity.class);
+                startActivity(i);
+                finish();
+
                 final String mName = name.getText().toString();
                 final String mPhone = phone.getText().toString();
                 final String mEmail = email.getText().toString();
@@ -69,7 +73,9 @@ public class RegistrationActivity extends AppCompatActivity {
                             User user1 = new User(user,pass);
                             table_user.child(user).setValue(user1);
                             Toast.makeText(RegistrationActivity.this, "Sign Up successfully !", Toast.LENGTH_SHORT).show();
-                            
+                            Intent i = new Intent(getBaseContext(),MainActivity.class);
+                            startActivity(i);
+                            finish();
 
                         }
 
