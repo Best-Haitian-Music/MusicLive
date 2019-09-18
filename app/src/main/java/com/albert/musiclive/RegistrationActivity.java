@@ -38,7 +38,7 @@ public class RegistrationActivity extends AppCompatActivity {
 
         //Init Firebase
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
-        final DatabaseReference table_user = database.getReference("user");
+        final DatabaseReference table_user = database.getReference("Users");
 
 
         btnSignUp.setOnClickListener(new View.OnClickListener() {
@@ -70,8 +70,8 @@ public class RegistrationActivity extends AppCompatActivity {
                         }else {
 
                             mDialog.dismiss();
-                            User user1 = new User(user,pass);
-                            table_user.child(user).setValue(user1);
+                           // User user1 = new User(user,pass);
+                           // table_user.child(user).setValue(user1);
                             Toast.makeText(RegistrationActivity.this, "Sign Up successfully !", Toast.LENGTH_SHORT).show();
                             Intent i = new Intent(getBaseContext(),MainActivity.class);
                             startActivity(i);

@@ -33,7 +33,7 @@ public class LoginActivity extends AppCompatActivity {
 
         //Init Firebase
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
-        final DatabaseReference table_user = database.getReference("user");
+        final DatabaseReference table_user = database.getReference("Users");
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
