@@ -25,10 +25,13 @@ import com.google.firebase.database.ValueEventListener;
 
 import org.w3c.dom.Text;
 
+import static com.parse.Parse.getApplicationContext;
+
 public class ProfileFragment extends Fragment {
     private TextView tvUserName;
     private TextView tvNbreAbon;
     private ImageView ivEdit;
+
     //Init Firebase
     final FirebaseDatabase database = FirebaseDatabase.getInstance();
     final DatabaseReference table_user = database.getReference("Users");
@@ -38,10 +41,11 @@ public class ProfileFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_profile, container,false);
 
     }
+
     public void startEdit(){
-      //  Intent i = new Intent(ProfileFragment.this, EditProfileActivity.class);
-      //  startActivity(i);
+
     }
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -57,7 +61,7 @@ public class ProfileFragment extends Fragment {
                 if(dataSnapshot.child("Albert4940").exists()) {
 
                     //Get information
-                    user1[0] = dataSnapshot.child("Albert4940").getValue(User.class);
+                    user1[0] = dataSnapshot.child("").getValue(User.class);
                     tvUserName.setText("Yow");
                     tvNbreAbon.setText(user1[0].getNbreAbon());
 
@@ -77,7 +81,8 @@ public class ProfileFragment extends Fragment {
             public void onClick(View v) {
                 //Toast.makeText(RegistrationActivity.this, "Nap Travay sou Fonctyonalite sa", Toast.LENGTH_SHORT).show();
 
-
+                Intent i = new Intent(getContext(), EditProfileActivity.class);
+                startActivity(i);
             }
         });
 

@@ -36,6 +36,7 @@ public class RegistrationActivity extends AppCompatActivity {
         btnSignUp=findViewById(R.id.btnSignUp);
         tvCreate=findViewById(R.id.tvCreate);
 
+
         //Init Firebase
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         final DatabaseReference table_user = database.getReference("Users");
@@ -45,9 +46,9 @@ public class RegistrationActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent i = new Intent(getBaseContext(),MainActivity.class);
+               /* Intent i = new Intent(getBaseContext(),EditProfileActivity.class);
                 startActivity(i);
-                finish();
+                finish();*/
 
                 final String mName = name.getText().toString();
                 final String mPhone = phone.getText().toString();
@@ -70,8 +71,8 @@ public class RegistrationActivity extends AppCompatActivity {
                         }else {
 
                             mDialog.dismiss();
-                           // User user1 = new User(user,pass);
-                           // table_user.child(user).setValue(user1);
+                            User user1 = new User(mName,pass,mPhone,mEmail,"","",user,"","","");
+                            table_user.child(user).setValue(user1);
                             Toast.makeText(RegistrationActivity.this, "Sign Up successfully !", Toast.LENGTH_SHORT).show();
                             Intent i = new Intent(getBaseContext(),MainActivity.class);
                             startActivity(i);
@@ -95,7 +96,7 @@ public class RegistrationActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //Toast.makeText(RegistrationActivity.this, "Nap Travay sou Fonctyonalite sa", Toast.LENGTH_SHORT).show();
-                Intent i = new Intent(getBaseContext(), WelcomeActivity.class);
+                Intent i = new Intent(getBaseContext(), LoginActivity.class);
                 startActivity(i);
                 finish();
             }
