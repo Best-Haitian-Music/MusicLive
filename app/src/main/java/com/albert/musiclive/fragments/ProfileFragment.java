@@ -1,5 +1,6 @@
 package com.albert.musiclive.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -11,9 +12,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.albert.musiclive.EditProfileActivity;
 import com.albert.musiclive.LoginActivity;
 import com.albert.musiclive.R;
 import com.albert.musiclive.User;
+import com.albert.musiclive.WelcomeActivity;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -35,11 +38,18 @@ public class ProfileFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_profile, container,false);
 
     }
-
+    public void startEdit(){
+      //  Intent i = new Intent(ProfileFragment.this, EditProfileActivity.class);
+      //  startActivity(i);
+    }
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         final User[] user1 = {new User()};
+        tvUserName = view.findViewById(R.id.tvUserName);
+        tvNbreAbon = view.findViewById(R.id.tvNbreAbon);
+        ivEdit = view.findViewById(R.id.ivEdit);
+        //tvUserName.setText("Yow");
         table_user.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -48,7 +58,7 @@ public class ProfileFragment extends Fragment {
 
                     //Get information
                     user1[0] = dataSnapshot.child("Albert4940").getValue(User.class);
-                    tvUserName.setText(user1[0].getUserName());
+                    tvUserName.setText("Yow");
                     tvNbreAbon.setText(user1[0].getNbreAbon());
 
 
@@ -62,5 +72,16 @@ public class ProfileFragment extends Fragment {
             }
         });
 
+        ivEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Toast.makeText(RegistrationActivity.this, "Nap Travay sou Fonctyonalite sa", Toast.LENGTH_SHORT).show();
+
+
+            }
+        });
+
     }
+
+
 }
