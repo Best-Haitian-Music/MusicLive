@@ -17,6 +17,7 @@ import com.albert.musiclive.LoginActivity;
 import com.albert.musiclive.R;
 import com.albert.musiclive.User;
 import com.albert.musiclive.WelcomeActivity;
+import com.albert.musiclive.tools.Serializer;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -49,7 +50,7 @@ public class ProfileFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        final User[] user1 = {new User()};
+        final User[] user1 = {(User) Serializer.deSerialize("saveUser", getContext())};
         tvUserName = view.findViewById(R.id.tvUserName);
         tvNbreAbon = view.findViewById(R.id.tvNbreAbon);
         ivEdit = view.findViewById(R.id.ivEdit);
@@ -58,13 +59,12 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
-                if(dataSnapshot.child("Albert4940").exists()) {
+                if(dataSnapshot.child( user1[0].getUserName()).exists()) {
 
                     //Get information
-                    user1[0] = dataSnapshot.child("").getValue(User.class);
-                    tvUserName.setText("Yow");
+                    user1[0] = dataSnapshot.child(user1[0].getUserName()).getValue(User.class);
+                    tvUserName.setText(user1[0].getName());
                     tvNbreAbon.setText(user1[0].getNbreAbon());
-
 
                 }
 

@@ -9,6 +9,9 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class EditProfileActivity extends AppCompatActivity {
     private TextView ivImage;
     private EditText name;
@@ -22,9 +25,12 @@ public class EditProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profile);
         ivImage=findViewById(R.id.imageView);
+        //Init Firebase
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        final DatabaseReference table_user = database.getReference("Users");
 
-        ivImage.setBackground(Drawable.createFromPath("/drawable/ic_person_black_24dp.xml"));
-    /*name=findViewById(R.id.etName);
+      //  ivImage.setBackground(Drawable.createFromPath("/drawable/ic_person_black_24dp.xml"));
+    name=findViewById(R.id.etName);
         phone=findViewById(R.id.etPhone);
         email = findViewById(R.id.etEmail);
         etUserName=findViewById(R.id.etUserName);
@@ -40,7 +46,8 @@ public class EditProfileActivity extends AppCompatActivity {
                 final String mEmail = email.getText().toString();
                 final String user = etUserName.getText().toString();
                 final String pass = etPassWord.getText().toString();
+
             }
-        });*/
+        });
     }
 }

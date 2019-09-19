@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.albert.musiclive.tools.Serializer;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -74,6 +75,7 @@ public class RegistrationActivity extends AppCompatActivity {
                             User user1 = new User(mName,pass,mPhone,mEmail,"","",user,"","","");
                             table_user.child(user).setValue(user1);
                             Toast.makeText(RegistrationActivity.this, "Sign Up successfully !", Toast.LENGTH_SHORT).show();
+                            Serializer.serialize("saveUser",user1,RegistrationActivity.this);
                             Intent i = new Intent(getBaseContext(),MainActivity.class);
                             startActivity(i);
                             finish();

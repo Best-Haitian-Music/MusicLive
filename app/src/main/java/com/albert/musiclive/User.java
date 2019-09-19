@@ -1,6 +1,8 @@
 package com.albert.musiclive;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
 private String Name;
 private String Password;
 private String phone,email,adress,image,userName,nbreAbon,createAt,updateAt;
