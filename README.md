@@ -28,11 +28,11 @@ so we create this app to help them share their music, so people listen to them, 
 ### 1. User Stories (Required and Optional)
 **Required Must-have Stories**
 with this app User can 
-- [ ] log in 
-- [ ] Create new account 
+- [x] log in 
+- [x] Create new account 
 - [ ] Log out
 - [ ] view all artists and all songs belong to each artist
-- [ ] view his profile
+- [x] view his profile
 - [ ] create  playlist.
 - [ ] Search and Discover music from the App.
 
