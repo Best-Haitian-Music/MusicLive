@@ -19,7 +19,7 @@ public class WelcomeActivity extends AppCompatActivity {
         User user = (User) Serializer.deSerialize("saveUser",this);
         if(user!=null) {
             Toast.makeText(this, user.getUserName(), Toast.LENGTH_SHORT).show();
-            Intent i = new Intent(getApplicationContext(), MainActivity.class);
+            Intent i = new Intent(getApplicationContext(), PlaySongActivity.class);
             startActivity(i);
             finish();
         }else{
