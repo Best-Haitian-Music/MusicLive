@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.albert.musiclive.models.User;
 import com.albert.musiclive.tools.Serializer;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -72,7 +73,10 @@ public class RegistrationActivity extends AppCompatActivity {
                         }else {
 
                             mDialog.dismiss();
-                            User user1 = new User(mName,pass,mPhone,mEmail,"","",user,"","","");
+
+                            User user1 = new User("","",mEmail,"",mName,"",pass,mPhone,"",user);
+                           // String userId = table_user.push().getKey();
+                          //  table_user.child(userId).setValue(user1);
                             table_user.child(user).setValue(user1);
                             Toast.makeText(RegistrationActivity.this, "Sign Up successfully !", Toast.LENGTH_SHORT).show();
                             Serializer.serialize("saveUser",user1,RegistrationActivity.this);

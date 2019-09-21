@@ -2,16 +2,15 @@
   "Users" : {
     "Albert4940" : {
       "name" : "Alberti",
+       "password" : "1234",
       "phone":"34534214",
       "email":"kjad@gmail.com",
       "adress":"delmas 33",
       "image":"",
-      "nbreAbonnes":"0",
-      "username":"Albert4940",
-      "password" : "1234",
+       "username":"Albert4940",
+      "nbreAbonnes":"",   
       "createAt" :"",
       "updateAt" :""
     }
   }
 }
-

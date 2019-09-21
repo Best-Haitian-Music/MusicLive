@@ -1,11 +1,26 @@
-package com.albert.musiclive;
+package com.albert.musiclive.models;
 
-import java.io.Serializable;
+public class Artist {
 
-public class User implements Serializable {
-private String Name;
-private String Password;
-private String phone,email,adress,image,userName,nbreAbon,createAt,updateAt;
+    private String artistId;
+
+    private String name,phone,email,adress,image,nbreAbon,createAt,updateAt;
+
+    public String getArtistId() {
+        return artistId;
+    }
+
+    public void setArtistId(String artistId) {
+        this.artistId = artistId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public String getPhone() {
         return phone;
@@ -39,14 +54,6 @@ private String phone,email,adress,image,userName,nbreAbon,createAt,updateAt;
         this.image = image;
     }
 
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
     public String getNbreAbon() {
         return nbreAbon;
     }
@@ -71,34 +78,26 @@ private String phone,email,adress,image,userName,nbreAbon,createAt,updateAt;
         this.updateAt = updateAt;
     }
 
-    public String getName() {
-        return Name;
+    public Artist(){
+
     }
 
-    public void setName(String name) {
-        Name = name;
-    }
-
-    public String getPassword() {
-        return Password;
-    }
-
-    public void setPassword(String password) {
-        Password = password;
-    }
-
-    public User() {
-    }
-
-    public User(String name, String password, String phone, String email, String adress, String image, String userName, String nbreAbon, String createAt, String updateAt) {
-        Name = name;
-        Password = password;
+    public Artist(String name, String phone, String email, String adress, String image, String nbreAbon, String createAt, String updateAt) {
+        this.name = name;
         this.phone = phone;
         this.email = email;
         this.adress = adress;
         this.image = image;
-        this.userName = userName;
-        this.nbreAbon = nbreAbon;
+        if(nbreAbon.trim().equals(""))
+        {
+            this.nbreAbon = "0";
+        }
+        else
+        {
+            this.nbreAbon = nbreAbon;
+        }
+
+
         this.createAt = createAt;
         this.updateAt = updateAt;
     }
