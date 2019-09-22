@@ -72,16 +72,16 @@ public class HomeFragment extends Fragment {
         adapte = new PostsAdapter(getContext(),listArtist);
         recyclerView.setAdapter(adapte);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        for(int i=0;i<=10;i++){
+       /* for(int i=0;i<=10;i++){
             Artist artist = new Artist();
             artist.setName("Iberdo"+i);
             artist.setNbreAbon(""+i);
             listArtist.add(artist);
         }
 
-        adapte.notifyDataSetChanged();
+        adapte.notifyDataSetChanged();*/
       //  progressBar.setVisibility(View.GONE);
-       /* table_artist.addValueEventListener(new ValueEventListener() {
+        table_artist.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 listArtist.clear();
@@ -92,13 +92,9 @@ public class HomeFragment extends Fragment {
 
                 }
 
-                for(int i=0;i<=10;i++){
-                    Artist artist = new Artist();
-                    artist.setName("Iberdo");
-                    listArtist.add(artist);
-                }
-                adapter.notifyDataSetChanged();
-                progressBar.setVisibility(View.GONE);
+
+                adapte.notifyDataSetChanged();
+               // progressBar.setVisibility(View.GONE);
             }
 
             @Override
@@ -106,7 +102,7 @@ public class HomeFragment extends Fragment {
                 Toast.makeText(getContext(), ""+databaseError.getMessage(), Toast.LENGTH_SHORT).show();
                 progressBar.setVisibility(View.GONE);
             }
-        });*/
+        });
 
 
        /* mPlay = view.findViewById(R.id.btnPlay);

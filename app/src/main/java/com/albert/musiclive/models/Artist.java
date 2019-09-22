@@ -4,7 +4,15 @@ public class Artist {
 
     private String artistId;
 
-    private String name,phone,email,adress,image,nbreAbon,createAt,updateAt;
+    private String name,phone,email,adress,image,nbreAbon,createAt,updateAt,songCount;
+
+    public String getSongCount() {
+        return songCount;
+    }
+
+    public void setSongCount(String songCount) {
+        this.songCount = songCount;
+    }
 
     public String getArtistId() {
         return artistId;
@@ -82,12 +90,14 @@ public class Artist {
 
     }
 
-    public Artist(String name, String phone, String email, String adress, String image, String nbreAbon, String createAt, String updateAt) {
+    public Artist(String adress,  String createAt,String email, String image,String name,String nbreAbon, String phone, String songCount,String updateAt
+                 ) {
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.adress = adress;
         this.image = image;
+        this.songCount = songCount;
         if(nbreAbon.trim().equals(""))
         {
             this.nbreAbon = "0";
