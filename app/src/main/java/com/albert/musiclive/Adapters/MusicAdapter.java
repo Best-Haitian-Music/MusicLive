@@ -71,7 +71,7 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.ViewHolder>{
                 {
                     Glide.with(context).load(image.getUrl()).into(ivImage);
                 }*/
-            tvLikeCount.setText(song.getLikeCount());
+            tvLikeCount.setText(song.getLikesCount());
             containerMusic.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.albert.musiclive.Main2Activity;
 import com.albert.musiclive.R;
 import com.albert.musiclive.models.Artist;
+import com.albert.musiclive.tools.Serializer;
 
 import java.util.List;
 
@@ -62,19 +63,21 @@ public class ArtitsAdapter extends RecyclerView.Adapter<ArtitsAdapter.ViewHolder
                 container=itemView.findViewById(R.id.container);
             }
 
-            public void bind(final Artist post){
+            public void bind(final Artist artist){
 
-                tvHandle.setText(post.getName());
+                tvHandle.setText(artist.getName());
                 /*ParseFile image = post.getImage();
                 if(image!=null)
                 {
                     Glide.with(context).load(image.getUrl()).into(ivImage);
                 }*/
-                tvDescription.setText(post.getNbreAbon());
+                tvDescription.setText(artist.getNbreAbon());
                 container.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Toast.makeText(context, post.getName(), Toast.LENGTH_SHORT).show();
+
+                        Artist artist1 =(Artist) Serializer.deSerialize("artist",context);
+                        //Toast.makeText(context, artist1.getArtistId(), Toast.LENGTH_SHORT).show();
                         Intent i = new Intent(context, Main2Activity.class);
                         context.startActivity(i);
                     }
