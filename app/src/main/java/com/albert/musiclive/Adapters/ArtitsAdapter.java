@@ -1,29 +1,29 @@
-package com.albert.musiclive;
+package com.albert.musiclive.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.albert.musiclive.Main2Activity;
+import com.albert.musiclive.R;
 import com.albert.musiclive.models.Artist;
-import com.bumptech.glide.Glide;
-import com.parse.ParseFile;
 
 import java.util.List;
 
-public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder>{
+public class ArtitsAdapter extends RecyclerView.Adapter<ArtitsAdapter.ViewHolder>{
 
     private Context context;
     private List<Artist> posts;
 
-    public PostsAdapter(Context context, List<Artist> posts) {
+    public ArtitsAdapter(Context context, List<Artist> posts) {
         this.context = context;
         this.posts = posts;
     }
@@ -75,6 +75,8 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder>{
                     @Override
                     public void onClick(View v) {
                         Toast.makeText(context, post.getName(), Toast.LENGTH_SHORT).show();
+                        Intent i = new Intent(context, Main2Activity.class);
+                        context.startActivity(i);
                     }
                 });
             }
