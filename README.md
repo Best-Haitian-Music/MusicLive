@@ -32,6 +32,7 @@ with this app User can
 - [x] Create new account 
 - [ ] Log out
 - [ ] view all artists and all songs belong to each artist
+- [x] play a song from a list of song
 - [x] view his profile
 - [ ] create  playlist.
 - [ ] Search and Discover music from the App.
