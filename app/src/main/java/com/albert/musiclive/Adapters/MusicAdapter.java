@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.albert.musiclive.Main2Activity;
+import com.albert.musiclive.PlaySongActivity;
 import com.albert.musiclive.R;
 import com.albert.musiclive.models.Artist;
 import com.albert.musiclive.models.Song;
@@ -76,7 +77,9 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.ViewHolder>{
                 @Override
                 public void onClick(View v) {
                     Toast.makeText(context, song.getTitle(), Toast.LENGTH_SHORT).show();
-                    Intent i = new Intent(context, Main2Activity.class);
+                    Intent i = new Intent(context, PlaySongActivity.class);
+                   // i.putExtra("fragmentName","playsong");
+                    i.putExtra("songLink",song.getSongLink());
                     context.startActivity(i);
                 }
             });

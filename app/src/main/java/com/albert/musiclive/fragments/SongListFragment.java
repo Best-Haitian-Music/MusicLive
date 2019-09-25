@@ -69,7 +69,7 @@ public class SongListFragment  extends Fragment {
 
        //Get information of Artist
          //final Artist artist =(Artist) Serializer.deSerialize("artist",getContext());
-        Toast.makeText(getContext(), artistId, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getContext(), artistId, Toast.LENGTH_SHORT).show();
         table_song.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -77,6 +77,7 @@ public class SongListFragment  extends Fragment {
                 for(DataSnapshot dss:dataSnapshot.getChildren()){
                     Song song = dss.getValue(Song.class);
                     song.setSongId(dss.getKey());
+
                     if(artistId.equals(song.getArtistId())) {
                         listSong.add(song);
                     }

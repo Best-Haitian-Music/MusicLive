@@ -2,6 +2,7 @@ package com.albert.musiclive;
 
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.AsyncTask;
 import android.os.Handler;
@@ -30,6 +31,7 @@ public class PlaySongActivity extends AppCompatActivity implements MediaPlayer.O
 
     private int mediaFileLength;
     private int realTimeLength;
+    String songLink;
     final Handler handler = new Handler();
 
 
@@ -38,7 +40,8 @@ public class PlaySongActivity extends AppCompatActivity implements MediaPlayer.O
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play_song);
-
+        Intent i = getIntent();
+         songLink = i.getStringExtra("songLink");
         btn_play_prev = (ImageButton)findViewById(R.id.btn_play_prev);
         btn_play_pause = (ImageButton)findViewById(R.id.btn_play_pause);
         btn_play_next = (ImageButton) findViewById(R.id.btn_play_next);
@@ -102,7 +105,7 @@ public class PlaySongActivity extends AppCompatActivity implements MediaPlayer.O
 
                     }
                 };
-                mp3Play.execute("https://firebasestorage.googleapis.com/v0/b/besthaitianmusic.appspot.com/o/Ido'T.mp3?alt=media&token=8f198c43-51b4-4450-82f4-62d74063ad26");
+                mp3Play.execute(songLink);
             }
         });
 

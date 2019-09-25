@@ -76,9 +76,10 @@ public class ArtitsAdapter extends RecyclerView.Adapter<ArtitsAdapter.ViewHolder
                     @Override
                     public void onClick(View v) {
 
-                        Artist artist1 =(Artist) Serializer.deSerialize("artist",context);
+                        //Artist artist1 =(Artist) Serializer.deSerialize("artist",context);
                         //Toast.makeText(context, artist1.getArtistId(), Toast.LENGTH_SHORT).show();
                         Intent i = new Intent(context, Main2Activity.class);
+                        i.putExtra("artistId",artist.getArtistId());
                         context.startActivity(i);
                     }
                 });
