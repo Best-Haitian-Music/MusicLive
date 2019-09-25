@@ -1,11 +1,15 @@
-package com.albert.musiclive;
+package com.albert.musiclive.models;
 
 import java.io.Serializable;
 
 public class User implements Serializable {
+
+
 private String Name;
 private String Password;
 private String phone,email,adress,image,userName,nbreAbon,createAt,updateAt;
+
+
 
     public String getPhone() {
         return phone;
@@ -40,7 +44,7 @@ private String phone,email,adress,image,userName,nbreAbon,createAt,updateAt;
     }
 
     public String getUserName() {
-        return userName;
+        return this.userName;
     }
 
     public void setUserName(String userName) {
@@ -90,7 +94,10 @@ private String phone,email,adress,image,userName,nbreAbon,createAt,updateAt;
     public User() {
     }
 
-    public User(String name, String password, String phone, String email, String adress, String image, String userName, String nbreAbon, String createAt, String updateAt) {
+
+
+    public User(String adress,  String createAt,String email, String image,String name,String nbreAbon,String password, String phone, String updateAt,
+                String userName) {
         Name = name;
         Password = password;
         this.phone = phone;
