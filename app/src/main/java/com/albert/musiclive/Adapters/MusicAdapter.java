@@ -83,6 +83,7 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.ViewHolder>{
                    // i.putExtra("fragmentName","playsong");
                     i.putExtra("songLink",song.getSongLink());
                     i.putExtra("title",song.getTitle());
+                    i.putExtra("musicId", song.getSongId());
                    // i.getCharSequenceArrayListExtra("listSong",songs);
                    // i.putArrayListExtra("listSong",songs);
                    // i.putExtra("song", Parcels.wrap(song));
