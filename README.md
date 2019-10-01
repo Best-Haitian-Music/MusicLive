@@ -30,12 +30,12 @@ so we create this app to help them share their music, so people listen to them, 
 with this app User can 
 - [x] log in 
 - [x] Create new account 
-- [ ] Log out
-- [ ] view all artists and all songs belong to each artist
+- [x ] Log out
+- [x] view all artists and all songs belong to each artist
 - [x] play a song from a list of song
 - [x] view his profile
-- [ ] create  playlist.
-- [ ] Search and Discover music from the App.
+- [x ] create  playlist.
+- [x ] Search and Discover music from the App.
 
 **Optional Nice-to-have Stories**
 - [ ] comment several times under a music.
