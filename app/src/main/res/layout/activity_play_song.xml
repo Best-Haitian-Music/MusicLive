@@ -4,30 +4,97 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     android:orientation="vertical"
     tools:context=".PlaySongActivity">
 
-    <SeekBar
-        android:id="@+id/seek_bar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
     <TextView
-        android:id="@+id/tvTimer"
-        android:layout_width="wrap_content"
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:layout_margin="10dp"
-        android:text="00:00"
-        />
+        android:gravity="center"
+        android:text="TextView"
+        android:textSize="20dp" />
 
+    <TextView
+        android:id="@+id/tvArtist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="80dp"
+        android:gravity="center"
+        android:text="Artist Name" />
 
+    <ImageView
+        android:id="@+id/iv_music"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:layout_gravity="center"
+        android:layout_margin="40dp"
 
+        tools:srcCompat="@drawable/album_art" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:layout_marginTop="80dp"
         android:gravity="center">
+
+        <ImageButton
+            android:id="@+id/ib_Shuffle"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/ic_play_shuffle" />
+
+        <ImageButton
+
+            android:id="@+id/ib_add_play_list"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/ic_play_add" />
+
+        <ImageButton
+            android:id="@+id/ib_comment"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/ic_comment" />
+
+        <ImageButton
+            android:id="@+id/ib_like"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:background="@drawable/ic_like2" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <SeekBar
+            android:id="@+id/seek_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tvTimer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginLeft="3dp"
+            android:text="00:00" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:orientation="horizontal">
 
         <ImageButton
             android:id="@+id/btn_play_prev"
@@ -41,7 +108,9 @@
             android:id="@+id/btn_play_pause"
             android:layout_width="60dp"
             android:layout_height="30dp"
-            android:layout_margin="10dp"
+
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="60dp"
             android:background="#B5AFADAC"
             android:src="@drawable/ic_play" />
 

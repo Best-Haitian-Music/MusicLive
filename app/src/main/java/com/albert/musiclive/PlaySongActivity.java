@@ -2,6 +2,7 @@ package com.albert.musiclive;
 
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.AsyncTask;
 import android.os.Handler;
@@ -14,22 +15,39 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.albert.musiclive.models.PlayList;
+import com.albert.musiclive.models.Song;
+import com.albert.musiclive.models.User;
+import com.albert.musiclive.tools.Serializer;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import org.parceler.Parcels;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 public class PlaySongActivity extends AppCompatActivity implements MediaPlayer.OnBufferingUpdateListener,MediaPlayer.OnCompletionListener{
-
+    final FirebaseDatabase database = FirebaseDatabase.getInstance();
+    final DatabaseReference table_playlist = database.getReference("PlayLists");
     private ImageButton btn_play_pause;
     private ImageButton btn_play_prev;
     private ImageButton btn_play_next;
+    private ImageButton btn_add_playlist;
     private TextView tvTimer;
+    private TextView tvTitle;
     private SeekBar seekBar;
 
     private MediaPlayer mediaPlayer;
 
     private int mediaFileLength;
     private int realTimeLength;
+    String songLink;
     final Handler handler = new Handler();
 
 
@@ -39,9 +57,25 @@ public class PlaySongActivity extends AppCompatActivity implements MediaPlayer.O
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play_song);
 
+        Intent i = getIntent();
+         songLink = i.getStringExtra("songLink");
+         String title = i.getStringExtra("title");
+         final String music = i.getStringExtra("musicId");
+
+       // final Song song = Parcels.unwrap(getIntent().getParcelableExtra("song"));
+        tvTitle = findViewById(R.id.tvTitle);
+        tvTitle.setText(title);
         btn_play_prev = (ImageButton)findViewById(R.id.btn_play_prev);
         btn_play_pause = (ImageButton)findViewById(R.id.btn_play_pause);
         btn_play_next = (ImageButton) findViewById(R.id.btn_play_next);
+        btn_add_playlist = (ImageButton) findViewById(R.id.ib_add_play_list);
+
+        btn_add_playlist.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addMusic(music);
+            }
+        });
 
        tvTimer = findViewById(R.id.tvTimer);
        seekBar = findViewById(R.id.seek_bar);
@@ -61,54 +95,58 @@ public class PlaySongActivity extends AppCompatActivity implements MediaPlayer.O
         btn_play_pause.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final ProgressDialog mDialog = new ProgressDialog(PlaySongActivity.this);
-
-                AsyncTask<String,String,String> mp3Play = new AsyncTask<String, String, String>() {
-
-                    @Override
-                    protected void onPreExecute() {
-                        mDialog.setMessage("Please Wait...");
-                        mDialog.show();
-                    }
-
-                    @Override
-                    protected String doInBackground(String... strings) {
-
-                        try{
-                            mediaPlayer.setDataSource(strings[0]);
-                            mediaPlayer.prepare();
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                        return "";
-                    }
-
-                    @Override
-                    protected void onPostExecute(String s) {
-                        mediaFileLength = mediaPlayer.getDuration();
-                        realTimeLength = mediaFileLength;
-                        if(!mediaPlayer.isPlaying()){
-                            mediaPlayer.start();
-                            btn_play_pause.setImageResource(R.drawable.ic_pause);
-
-                        }else{
-                            mediaPlayer.pause();
-                            btn_play_pause.setImageResource(R.drawable.ic_play);
-                        }
-
-                        updateSeekBar();
-                        mDialog.dismiss();
-                        
-
-                    }
-                };
-                mp3Play.execute("https://firebasestorage.googleapis.com/v0/b/besthaitianmusic.appspot.com/o/Ido'T.mp3?alt=media&token=8f198c43-51b4-4450-82f4-62d74063ad26");
+                play(songLink);
             }
         });
 
         mediaPlayer = new MediaPlayer();
         mediaPlayer.setOnBufferingUpdateListener(this);
         mediaPlayer.setOnCompletionListener(this);
+    }
+
+    public void play( String songLink){
+        final ProgressDialog mDialog = new ProgressDialog(PlaySongActivity.this);
+
+        AsyncTask<String,String,String> mp3Play = new AsyncTask<String, String, String>() {
+
+            @Override
+            protected void onPreExecute() {
+                mDialog.setMessage("Please Wait...");
+                mDialog.show();
+            }
+
+            @Override
+            protected String doInBackground(String... strings) {
+
+                try{
+                    mediaPlayer.setDataSource(strings[0]);
+                    mediaPlayer.prepare();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                return "";
+            }
+
+            @Override
+            protected void onPostExecute(String s) {
+                mediaFileLength = mediaPlayer.getDuration();
+                realTimeLength = mediaFileLength;
+                if(!mediaPlayer.isPlaying()){
+                    mediaPlayer.start();
+                    btn_play_pause.setImageResource(R.drawable.ic_pause);
+
+                }else{
+                    mediaPlayer.pause();
+                    btn_play_pause.setImageResource(R.drawable.ic_play);
+                }
+
+                updateSeekBar();
+                mDialog.dismiss();
+
+
+            }
+        };
+        mp3Play.execute(songLink);
     }
 
     private void updateSeekBar() {
@@ -138,5 +176,45 @@ public class PlaySongActivity extends AppCompatActivity implements MediaPlayer.O
     @Override
     public void onCompletion(MediaPlayer mp) {
             btn_play_pause.setImageResource(R.drawable.ic_play);
+    }
+
+    public void addMusic(final String musicId){
+
+        final User user = (User) Serializer.deSerialize("saveUser",this);
+        String playlistId = table_playlist.push().getKey();
+
+            PlayList playList = new PlayList(musicId,user.getUserName());
+            playList.setPlaylistId(playlistId);
+            table_playlist.child(playlistId).setValue(playList);
+            Toast.makeText(getApplicationContext(), "Successfuly added", Toast.LENGTH_SHORT).show();
+            return;
+
+        /*table_playlist.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                String playlistId = table_playlist.push().getKey();
+                if(dataSnapshot.child(playlistId).exists()) {
+                    Toast.makeText(getApplicationContext(), "Music already added", Toast.LENGTH_SHORT).show();
+                }else
+                {
+                    PlayList playList = new PlayList(musicId,user.getUserName());
+                    playList.setPlaylistId(playlistId);
+                    table_playlist.child(playlistId).setValue(playList);
+                    Toast.makeText(getApplicationContext(), "Successfuly added", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Toast.makeText(getApplicationContext(), ""+databaseError.getMessage(), Toast.LENGTH_SHORT).show();
+
+            }
+        });*/
+
+
+
     }
 }

@@ -14,7 +14,7 @@
         app:showAsAction="always" />
     <item
         android:id="@+id/action_playlist"
-        android:icon="@drawable/ic_playlist_add_black_24dp"
+        android:icon="@drawable/ic_play_list"
         android:title="play list"
         app:showAsAction="always" />
     <item

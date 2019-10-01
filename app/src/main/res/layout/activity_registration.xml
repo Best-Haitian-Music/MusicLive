@@ -82,7 +82,11 @@
             android:layout_marginRight="20dp"
             android:layout_marginBottom="15dp"
             android:hint="EMAIL"
-            android:textColor="#020202"
+            android:textColor="@android:color/background_light"
+            android:textColorHighlight="@android:color/background_light"
+            android:textColorHint="@android:color/background_light"
+            android:textColorLink="@android:color/background_light"
+            android:textCursorDrawable="@android:color/background_light"
             android:textSize="24sp" />
 
     </android.support.design.widget.TextInputLayout>
@@ -102,7 +106,11 @@
             android:layout_marginRight="20dp"
             android:layout_marginBottom="15dp"
             android:hint="username"
-            android:textColor="#020202"
+            android:textColor="@android:color/background_light"
+            android:textColorHighlight="@android:color/background_light"
+            android:textColorHint="@android:color/background_light"
+            android:textColorLink="@android:color/background_light"
+            android:textCursorDrawable="@android:color/background_light"
             android:textSize="24sp" />
 
     </android.support.design.widget.TextInputLayout>
@@ -111,7 +119,7 @@
         android:id="@+id/etPassWord_text_input_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColorHint="#020202"
+        android:textColorHint="#FFFFFF"
         app:passwordToggleEnabled="true">
 
 
@@ -129,7 +137,11 @@
             android:hint="password"
             android:inputType="textPassword"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="#020202"
+            android:textColor="@android:color/background_light"
+            android:textColorHighlight="@android:color/background_light"
+            android:textColorHint="@android:color/background_light"
+            android:textColorLink="@android:color/background_light"
+            android:textCursorDrawable="@android:color/background_light"
             android:textSize="24sp" />
 
 

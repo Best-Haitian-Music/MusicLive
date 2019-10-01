@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@drawable/background2"
     android:orientation="vertical"
     tools:context=".LoginActivity">
 
@@ -16,7 +16,7 @@
         android:layout_marginBottom="150dp"
         android:gravity="center"
         android:text="MusicLive"
-        android:textColor="@android:color/black"
+        android:textColor="@android:color/white"
         android:textSize="30sp" />
 
     <TextView
@@ -26,14 +26,17 @@
         android:layout_marginLeft="10dp"
         android:layout_marginBottom="15dp"
         android:text="Login"
-        android:textColor="@android:color/black"
+        android:textColor="@android:color/background_light"
+        android:textColorHighlight="@android:color/background_light"
         android:textSize="30sp" />
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/username_text_input_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColorHint="@android:color/black"
+        android:textColorHint="@android:color/background_light"
+        app:boxBackgroundColor="@android:color/background_light"
+        app:boxStrokeColor="@android:color/background_light"
         app:passwordToggleEnabled="true">
 
         <EditText
@@ -44,7 +47,11 @@
             android:layout_marginRight="20dp"
             android:layout_marginBottom="15dp"
             android:hint="username"
-            android:textColor="#020202"
+            android:textColor="@android:color/background_light"
+            android:textColorHighlight="@android:color/background_light"
+            android:textColorHint="@android:color/background_light"
+            android:textColorLink="@android:color/background_light"
+            android:textCursorDrawable="@android:color/background_light"
             android:textSize="24sp" />
 
     </android.support.design.widget.TextInputLayout>
@@ -53,9 +60,9 @@
         android:id="@+id/etPassWord_text_input_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColorHint="@android:color/black"
+        android:textColorHint="@android:color/background_light"
         app:passwordToggleEnabled="true"
-        app:passwordToggleTint="@android:color/black">
+        app:passwordToggleTint="@android:color/background_light">
 
 
         <EditText
@@ -72,7 +79,7 @@
             android:hint="password"
             android:inputType="textPassword"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="#020202"
+            android:textColor="@android:color/background_light"
             android:textSize="24sp" />
 
 
@@ -97,7 +104,7 @@
         android:layout_marginTop="100dp"
         android:gravity="center"
         android:text="Don't have an account yet? Sing Up"
-        android:textColor="#020202"
+        android:textColor="@android:color/background_light"
         android:textSize="18sp" />
 
 
