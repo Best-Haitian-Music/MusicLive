@@ -80,6 +80,7 @@ public class ArtitsAdapter extends RecyclerView.Adapter<ArtitsAdapter.ViewHolder
                         //Toast.makeText(context, artist1.getArtistId(), Toast.LENGTH_SHORT).show();
                         Intent i = new Intent(context, Main2Activity.class);
                         i.putExtra("artistId",artist.getArtistId());
+                        i.putExtra("artistName",artist.getName());
                         context.startActivity(i);
                     }
                 });

@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.albert.musiclive.Adapters.ArtitsAdapter;
@@ -29,16 +30,20 @@ import java.util.List;
 
 public class SongListFragment  extends Fragment {
     private RecyclerView recyclerViewSong;
+    private TextView tvArtistName;
     private ProgressBar progressBar;
     private List<Song> listSong;
     private MusicAdapter musicAdapter;
     final FirebaseDatabase database = FirebaseDatabase.getInstance();
     final DatabaseReference table_song = database.getReference("Songs");
 
-    private String artistId;
+    private String artistId,artistName;
 
     public void setArtistId(String artistId) {
         this.artistId = artistId;
+    }
+    public void setArtistName(String artistName) {
+        this.artistName = artistName;
     }
 
     @Nullable
@@ -51,11 +56,15 @@ public class SongListFragment  extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        tvArtistName = view.findViewById(R.id.tvArtistName);
+        tvArtistName.setText(artistName);
+        progressBar = view.findViewById(R.id.progressBar2);
         recyclerViewSong = view.findViewById(R.id.lv_song);
         recyclerViewSong.setHasFixedSize(true);
 
         listSong = new ArrayList<>();
         musicAdapter = new MusicAdapter(getContext(),listSong);
+
         recyclerViewSong.setAdapter(musicAdapter);
         recyclerViewSong.setLayoutManager(new LinearLayoutManager(getContext()));
 
@@ -85,7 +94,7 @@ public class SongListFragment  extends Fragment {
                 }
 
                 musicAdapter.notifyDataSetChanged();
-                // progressBar.setVisibility(View.GONE);
+                progressBar.setVisibility(View.GONE);
             }
 
             @Override

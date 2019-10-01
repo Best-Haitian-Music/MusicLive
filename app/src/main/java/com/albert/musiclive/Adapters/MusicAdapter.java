@@ -18,12 +18,14 @@ import com.albert.musiclive.R;
 import com.albert.musiclive.models.Artist;
 import com.albert.musiclive.models.Song;
 
+import org.parceler.Parcels;
+
 import java.util.List;
 
 public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.ViewHolder>{
 
     private Context context;
-    private List<Song> songs;
+    private final  List<Song> songs;
 
     public MusicAdapter(Context context, List<Song> songs) {
         this.context = context;
@@ -76,10 +78,14 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.ViewHolder>{
             containerMusic.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(context, song.getTitle(), Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(context, song.getTitle(), Toast.LENGTH_SHORT).show();
                     Intent i = new Intent(context, PlaySongActivity.class);
                    // i.putExtra("fragmentName","playsong");
                     i.putExtra("songLink",song.getSongLink());
+                    i.putExtra("title",song.getTitle());
+                   // i.getCharSequenceArrayListExtra("listSong",songs);
+                   // i.putArrayListExtra("listSong",songs);
+                   // i.putExtra("song", Parcels.wrap(song));
                     context.startActivity(i);
                 }
             });

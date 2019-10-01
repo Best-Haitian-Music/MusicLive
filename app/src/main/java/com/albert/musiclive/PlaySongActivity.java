@@ -16,6 +16,10 @@ import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import com.albert.musiclive.models.Song;
+
+import org.parceler.Parcels;
+
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
@@ -25,6 +29,7 @@ public class PlaySongActivity extends AppCompatActivity implements MediaPlayer.O
     private ImageButton btn_play_prev;
     private ImageButton btn_play_next;
     private TextView tvTimer;
+    private TextView tvTitle;
     private SeekBar seekBar;
 
     private MediaPlayer mediaPlayer;
@@ -40,8 +45,14 @@ public class PlaySongActivity extends AppCompatActivity implements MediaPlayer.O
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play_song);
+
         Intent i = getIntent();
          songLink = i.getStringExtra("songLink");
+         String title = i.getStringExtra("title");
+
+       // final Song song = Parcels.unwrap(getIntent().getParcelableExtra("song"));
+        tvTitle = findViewById(R.id.tvTitle);
+        tvTitle.setText(title);
         btn_play_prev = (ImageButton)findViewById(R.id.btn_play_prev);
         btn_play_pause = (ImageButton)findViewById(R.id.btn_play_pause);
         btn_play_next = (ImageButton) findViewById(R.id.btn_play_next);
@@ -64,54 +75,58 @@ public class PlaySongActivity extends AppCompatActivity implements MediaPlayer.O
         btn_play_pause.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final ProgressDialog mDialog = new ProgressDialog(PlaySongActivity.this);
-
-                AsyncTask<String,String,String> mp3Play = new AsyncTask<String, String, String>() {
-
-                    @Override
-                    protected void onPreExecute() {
-                        mDialog.setMessage("Please Wait...");
-                        mDialog.show();
-                    }
-
-                    @Override
-                    protected String doInBackground(String... strings) {
-
-                        try{
-                            mediaPlayer.setDataSource(strings[0]);
-                            mediaPlayer.prepare();
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                        return "";
-                    }
-
-                    @Override
-                    protected void onPostExecute(String s) {
-                        mediaFileLength = mediaPlayer.getDuration();
-                        realTimeLength = mediaFileLength;
-                        if(!mediaPlayer.isPlaying()){
-                            mediaPlayer.start();
-                            btn_play_pause.setImageResource(R.drawable.ic_pause);
-
-                        }else{
-                            mediaPlayer.pause();
-                            btn_play_pause.setImageResource(R.drawable.ic_play);
-                        }
-
-                        updateSeekBar();
-                        mDialog.dismiss();
-                        
-
-                    }
-                };
-                mp3Play.execute(songLink);
+                play(songLink);
             }
         });
 
         mediaPlayer = new MediaPlayer();
         mediaPlayer.setOnBufferingUpdateListener(this);
         mediaPlayer.setOnCompletionListener(this);
+    }
+
+    public void play( String songLink){
+        final ProgressDialog mDialog = new ProgressDialog(PlaySongActivity.this);
+
+        AsyncTask<String,String,String> mp3Play = new AsyncTask<String, String, String>() {
+
+            @Override
+            protected void onPreExecute() {
+                mDialog.setMessage("Please Wait...");
+                mDialog.show();
+            }
+
+            @Override
+            protected String doInBackground(String... strings) {
+
+                try{
+                    mediaPlayer.setDataSource(strings[0]);
+                    mediaPlayer.prepare();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                return "";
+            }
+
+            @Override
+            protected void onPostExecute(String s) {
+                mediaFileLength = mediaPlayer.getDuration();
+                realTimeLength = mediaFileLength;
+                if(!mediaPlayer.isPlaying()){
+                    mediaPlayer.start();
+                    btn_play_pause.setImageResource(R.drawable.ic_pause);
+
+                }else{
+                    mediaPlayer.pause();
+                    btn_play_pause.setImageResource(R.drawable.ic_play);
+                }
+
+                updateSeekBar();
+                mDialog.dismiss();
+
+
+            }
+        };
+        mp3Play.execute(songLink);
     }
 
     private void updateSeekBar() {

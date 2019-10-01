@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
@@ -38,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
                     break;
                     case R.id.action_search:
                         fragment = new SearchFragment();
+
                      break;
                     case R.id.action_playlist:
                         fragment = new PlayListFragment();
@@ -54,4 +56,6 @@ public class MainActivity extends AppCompatActivity {
         // set default selection
         bottomNavigationView.setSelectedItemId(R.id.action_home);
     }
+
+
 }

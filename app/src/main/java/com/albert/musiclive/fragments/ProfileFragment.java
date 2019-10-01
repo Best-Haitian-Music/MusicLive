@@ -6,13 +6,18 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.albert.musiclive.EditProfileActivity;
+import com.albert.musiclive.LoginActivity;
 import com.albert.musiclive.R;
+import com.albert.musiclive.WelcomeActivity;
 import com.albert.musiclive.models.User;
 import com.albert.musiclive.tools.Serializer;
 import com.google.firebase.database.DataSnapshot;
@@ -43,6 +48,7 @@ public class ProfileFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        setHasOptionsMenu(true);
         final User[] user1 = {(User) Serializer.deSerialize("saveUser", getContext())};
         final User[] user = new User[1];
         tvUserName = view.findViewById(R.id.tvUserName);
@@ -59,7 +65,6 @@ public class ProfileFragment extends Fragment {
                     user[0] = dataSnapshot.child(user1[0].getUserName()).getValue(User.class);
                     tvUserName.setText(user[0].getName());
                     tvNbreAbon.setText(user[0].getNbreAbon());
-
                 }
 
             }
@@ -77,10 +82,40 @@ public class ProfileFragment extends Fragment {
 
                 Intent i = new Intent(getContext(), EditProfileActivity.class);
                 startActivity(i);
+
             }
         });
 
     }
 
+    @Override
+
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+
+        // Inflate the menu; this adds items to the action bar.
+
+         inflater.inflate(R.menu.menu_logout, menu);
+        // ...
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_logout) {
+
+            getContext().deleteFile("saveUser");
+            Intent i = new Intent(getContext(), WelcomeActivity.class);
+            startActivity(i);
+
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
 
 }
